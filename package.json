@@ -1,0 +1,31 @@
+{
+  "name": "node_mysql_crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tharindusenadeera/Angular4-NodeJS-mySQL.git"
+  },
+  "author": "Tharindu Senadeera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tharindusenadeera/Angular4-NodeJS-mySQL/issues"
+  },
+  "homepage": "https://github.com/tharindusenadeera/Angular4-NodeJS-mySQL#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-flash": "0.0.2",
+    "express-myconnection": "^1.0.4",
+    "express-session": "^1.15.6",
+    "express-validator": "^4.3.0",
+    "method-override": "^2.3.10",
+    "mysql": "^2.15.0"
+  }
+}
