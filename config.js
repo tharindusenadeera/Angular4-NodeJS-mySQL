@@ -1,16 +1,18 @@
-var config = {
-    database : {
-        host     : 'localhost',
-        user     : 'root',
-        password : '',
-        port     : 3306,
-        db       : 'charity_project'
+var mysql = require('mysql');
 
-    },
-    server   : {
-        host: '127.0.0.1',
-        port: '3000'
-    }
-}
+var connection = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'root',
+    password : '',
+    database : 'charity_project'
+  });
+   
+   
+  connection.connect(function(err) {
+    if (err) throw err
+    console.log('You are now connected...')
+  })
 
-module.exports = config
+
+
+module.exports = connection

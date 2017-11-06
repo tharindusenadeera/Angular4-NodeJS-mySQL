@@ -1,3 +1,4 @@
+var http    = require('http');
 var express = require('express');
 var app     = express();
 
@@ -6,19 +7,18 @@ var mysql   = require('mysql');
 var myConnection = require('express-myconnection');
 
 var config       = require('./config');
-var dbOptions = {
-    host:      config.database.host,
-    user:       config.database.user,
-    password: config.database.password,
-    port:       config.database.port, 
-    database: config.database.db
-}
+/* var dbOptions = {
+    host:     config.database.host,
+    user:     config.database.user,
+    password: config.database.password, 
+    database: config.database.database
+} */
 
-app.use(myConnection(mysql, dbOptions, 'pool'))
+//app.use(myConnection(mysql, dbOptions, 'pool'))
 
-app.set('view engine', 'ejs')
+//app.set('view engine', 'ejs')
 
-var index = require('./routes/index')
+//var index = require('./routes/index')
 var users = require('./routes/users')
 
 var expressValidator = require('express-validator')
@@ -51,7 +51,7 @@ app.use(session({
 }))
 app.use(flash())
 
-app.use('/', index)
+//app.use('/', index)
 app.use('/users', users)
 
 app.listen(3000, function(){
