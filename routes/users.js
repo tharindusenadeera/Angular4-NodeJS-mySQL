@@ -1,11 +1,27 @@
 var express = require('express')
 var app = express()
+var connection = require('../config.js');
+
+
+app.get('/test', function (req, res) {
+    var sql = 'SELECT * FROM registration';
+    connection.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log("1 record inserted");
+    });
+
+    res.send('test sucess');
+ });
+
+
+
+
 
 //LIST OF USERS
 
 app.get('/', function (req, res) {
     console.log(req);
-    connection.query('select * from registration', function (error, results, fields) {
+    connection.query('SELECT * FROM registration', function (error, results, fields) {
        if (error) throw error;
        res.end(JSON.stringify(results));
      });
@@ -28,9 +44,13 @@ app.get('/', function (req, res) {
 app.post('/add', function (req, res) {
     var postData  = req.body;
     connection.query('INSERT INTO registration SET ?', postData, function (error, results, fields) {
-    if (error) throw error;
-    res.end(JSON.stringify(results));
-  });
+    if (error) {
+        res.send ('querry error');
+    }else{
+        res.send(JSON.stringify('Recod Successfully inserted'));
+    }
+    });
+    
  });
 
 /* // SHOW EDIT USER FORM
